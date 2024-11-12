@@ -1,0 +1,14 @@
+return {
+	{ import = "plugins.extras.editor.ufo" },
+	{ import = "plugins.extras.editor.hop" },
+	{ import = "plugins.extras.editor.telescope" },
+	{ import = "plugins.extras.editor.window-picker" },
+	{ import = "plugins.extras.editor.grug-far" },
+	{ import = "plugins.extras.editor.flash" },
+	{ import = "plugins.extras.editor.treesitter" },
+  { import = "plugins.extras.editor.navbuddy", cond = ConfigVariable.editor.navbuddy },
+  { import = "plugins.extras.editor.navic", cond = ConfigVariable.editor.navic },
+  { import = "lazyvim.plugins.extras.editor.outline", cond = ConfigVariable.editor.outline },
+  { import = "lazyvim.plugins.extras.editor.aerial", cond = ConfigVariable.editor.aerial },
+  { import = "lazyvim.plugins.extras.editor.illuminate", cond = ConfigVariable.editor.illuminate },
+}
