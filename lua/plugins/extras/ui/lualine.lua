@@ -90,27 +90,18 @@ return {
           statusline = { "dashboard", "alpha", "ministarter", "neo-tree", "Outline", "trouble" },
           winbar = { "neo-tree", "Outline", "trouble" },
         },
-        component_separators = "",
-        section_separators = { left = "", right = "" },
+        -- component_separators = "",
+        -- section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        -- component_separators = { left = "|", right = "|" },
+        -- section_separators = { left = "", right = "" },
       },
       sections = {
         lualine_a = {
-          { "mode", separator = { left = "" }, right_padding = 2 },
           {
-            function()
-              return "▊"
-            end,
-            padding = 0,
-            separator = "",
-            color = function()
-              local hl = is_file_window() and "Statement" or "Function"
-              return LazyVim.ui.fg(hl)
-            end,
-          },
-          {
-            function()
-              return ""
-            end,
+            "mode",
+            right_padding = 2,
           },
         },
         lualine_b = {
@@ -205,7 +196,7 @@ return {
             end,
             cond = is_not_prompt,
             padding = 2,
-            separator = { right = "" },
+            -- separator = { right = "" },
           },
         },
       },
@@ -246,13 +237,10 @@ return {
     end
 
     if ConfigVariable.editor.navic then
-      table.insert(opts.winbar.lualine_a, {
+      table.insert(opts.winbar.lualine_c, {
         "filename",
-        section_separators = { left = "" },
+        -- color = colors.violet,
       })
-      -- table.insert(opts.winbar.lualine_c, function()
-      -- 	return ">"
-      -- end)
       table.insert(opts.winbar.lualine_c, { "navic", color_correction = "dynamic" })
     end
 

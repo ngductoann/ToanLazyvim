@@ -17,6 +17,7 @@ ConfigVariable = {
 		rust = false,
 		scala = false,
 		nix = false,
+		kubernetes = false
 	},
 	util = {
 		rest = false,
@@ -31,7 +32,7 @@ ConfigVariable = {
 		illuminate = true,
 	},
 	ui = {
-		scroll = true,
+		scroll = false,
 		zenmode = false,
 	},
 }
