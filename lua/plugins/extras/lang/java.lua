@@ -119,10 +119,62 @@ return {
         test = true,
         settings = {
           java = {
-            inlayHints = {
-              parameterNames = {
-                enabled = "all",
+            references = {
+              includeDecompiledSources = true,
+            },
+            format = {
+              enabled = true,
+              settings = {
+                url = vim.fn.stdpath("config") .. "/intellij-java-google-style.xml",
+                profile = "GoogleStyle",
               },
+            },
+            eclipse = {
+              downloadSources = true,
+            },
+            maven = {
+              downloadSources = true,
+            },
+            signatureHelp = { enabled = true },
+            contentProvider = { preferred = "fernflower" },
+            completion = {
+              favoriteStaticMembers = {
+                "org.hamcrest.MatcherAssert.assertThat",
+                "org.hamcrest.Matchers.*",
+                "org.hamcrest.CoreMatchers.*",
+                "org.junit.jupiter.api.Assertions.*",
+                "java.util.Objects.requireNonNull",
+                "java.util.Objects.requireNonNullElse",
+                "org.mockito.Mockito.*",
+              },
+              filteredTypes = {
+                "com.sun.*",
+                "io.micrometer.shaded.*",
+                "java.awt.*",
+                "jdk.*",
+                "sun.*",
+              },
+              importOrder = {
+                "java",
+                "javax",
+                "com",
+                "org",
+              },
+            },
+            sources = {
+              organizeImports = {
+                starThreshold = 9999,
+                staticStarThreshold = 9999,
+              },
+            },
+            codeGeneration = {
+              toString = {
+                template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+                -- flags = {
+                -- 	allow_incremental_sync = true,
+                -- },
+              },
+              useBlocks = true,
             },
           },
         },
