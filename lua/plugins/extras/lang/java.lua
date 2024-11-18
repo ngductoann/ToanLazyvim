@@ -43,7 +43,7 @@ return {
     dependencies = {
       {
         "williamboman/mason.nvim",
-        opts = { ensure_installed = { "java-debug-adapter", "java-test" } },
+        opts = { ensure_installed = { "java-debug-adapter", "java-test", "google-java-format" } },
       },
     },
   },
@@ -329,6 +329,18 @@ return {
 
       -- Avoid race condition by calling attach the first time, since the autocmd won't fire.
       attach_jdtls()
+    end,
+  },
+  {
+    "elmcgill/springboot-nvim",
+    cmd = { "SpringBootNewProject" },
+    depedencies = {
+      "neovim/nvim-lspconfig",
+      "mfussenegger/nvim-jdtls",
+    },
+    config = function()
+      local springboot_nvim = require("springboot-nvim")
+      springboot_nvim.setup({})
     end,
   },
 }

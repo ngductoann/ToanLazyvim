@@ -10,6 +10,7 @@ local M = {
     opts = function()
       ---@class PluginLspOpts
       local ret = {
+        lsp = { auto_attach = true },
         -- options for vim.diagnostic.config()
         ---@type vim.diagnostic.Opts
         diagnostics = {
@@ -35,7 +36,7 @@ local M = {
           exclude = { "vue" }, -- filetypes for which you don't want to enable inlay hints
         },
         codelens = {
-          enabled = true,
+          enabled = false,
         },
         -- Enable lsp cursor word highlighting
         document_highlight = {
@@ -95,6 +96,33 @@ local M = {
           end
         end
       end)
+    end,
+  },
+
+  -- Lens
+  {
+    "VidocqH/lsp-lens.nvim",
+    cmd = { "LspLensOn", "LspLensOff", "LspLensToggle" },
+    config = function()
+      local SymbolKind = vim.lsp.protocol.SymbolKind
+
+      require("lsp-lens").setup({
+        enable = true,
+        include_declaration = false, -- Reference include declaration
+        sections = { -- Enable / Disable specific request, formatter example looks 'Format Requests'
+          definition = false,
+          references = true,
+          implements = true,
+          git_authors = true,
+        },
+        ignore_filetype = {
+          "prisma",
+        },
+        -- Target Symbol Kinds to show lens information
+        target_symbol_kinds = { SymbolKind.Function, SymbolKind.Method, SymbolKind.Interface },
+        -- Symbol Kinds that may have target symbol kinds as children
+        wrapper_symbol_kinds = { SymbolKind.Class, SymbolKind.Struct },
+      })
     end,
   },
 
