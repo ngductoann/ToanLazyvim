@@ -1,6 +1,6 @@
 return {
 	{ import = "lazyvim.plugins.extras.ui.mini-indentscope" },
-	{ import = "plugins.extras.ui.alpha" },
+	-- { import = "plugins.extras.ui.alpha" },
 	{ import = "plugins.extras.ui.bufferline" },
 	{ import = "plugins.extras.ui.lualine" },
 	{ import = "plugins.extras.ui.transparent" },

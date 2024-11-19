@@ -8,8 +8,9 @@ return {
 	{ import = "plugins.extras.editor.treesitter" },
 	{ import = "plugins.extras.editor.leetcode" },
   { import = "plugins.extras.editor.navbuddy", cond = ConfigVariable.editor.navbuddy },
-  { import = "plugins.extras.editor.navic", cond = ConfigVariable.editor.navic },
+  -- { import = "plugins.extras.editor.navic", cond = ConfigVariable.editor.navic },
   { import = "lazyvim.plugins.extras.editor.outline", cond = ConfigVariable.editor.outline },
   { import = "lazyvim.plugins.extras.editor.aerial", cond = ConfigVariable.editor.aerial },
   { import = "lazyvim.plugins.extras.editor.illuminate", cond = ConfigVariable.editor.illuminate },
+	-- { import = "lazyvim.plugins.extras.editor.navic" },
 }

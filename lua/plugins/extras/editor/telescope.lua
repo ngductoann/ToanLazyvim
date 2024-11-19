@@ -150,9 +150,6 @@ return {
     end,
     dependencies = {
       "nvim-lua/plenary.nvim",
-      -- Telescope extension for Zoxide
-      "jvgrootveld/telescope-zoxide",
-      -- Browse synonyms for a word
     },
 		-- stylua: ignore
 		keys = {

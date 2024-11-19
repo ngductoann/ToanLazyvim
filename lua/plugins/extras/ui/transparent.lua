@@ -26,7 +26,7 @@ return {
 				"SignColumn",
 				"CursorLine",
 				"CursorLineNr",
-				-- 'StatusLine',
+				'StatusLine',
 				-- 'StatusLineNC',
 				"EndOfBuffer",
 			},
