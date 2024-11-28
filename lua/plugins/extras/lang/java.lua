@@ -331,16 +331,4 @@ return {
       attach_jdtls()
     end,
   },
-  {
-    "elmcgill/springboot-nvim",
-    cmd = { "SpringBootNewProject" },
-    depedencies = {
-      "neovim/nvim-lspconfig",
-      "mfussenegger/nvim-jdtls",
-    },
-    config = function()
-      local springboot_nvim = require("springboot-nvim")
-      springboot_nvim.setup({})
-    end,
-  },
 }

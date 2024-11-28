@@ -1,3 +1,5 @@
+dofile(vim.g.base46_cache .. "lsp")
+
 return {
   -- lspconfig
   {
@@ -8,6 +10,11 @@ return {
       { "williamboman/mason-lspconfig.nvim", config = function() end },
     },
     opts = function()
+      local Keys = require("lazyvim.plugins.lsp.keymaps").get()
+      vim.list_extend(Keys, {
+        { "<leader>cc", "<cmd>:LspLensToggle<cr>", desc = "Run Codelens", mode = { "n", "v" }, has = "codeLens" },
+        -- { "<leader>cu", "<cmd>:Lspsaga outline<cr>", desc = "Outline", mode = { "n", "v" }, has = "outline" },
+      })
       ---@class PluginLspOpts
       local ret = {
         -- options for vim.diagnostic.config()
@@ -296,4 +303,60 @@ return {
       end)
     end,
   },
+
+  {
+    "VidocqH/lsp-lens.nvim",
+    cmd = { "LspLensOn", "LspLensOff", "LspLensToggle" },
+    config = function()
+      local SymbolKind = vim.lsp.protocol.SymbolKind
+
+      require("lsp-lens").setup({
+        enable = true,
+        include_declaration = false, -- Reference include declaration
+        -- sections = { -- Enable / Disable specific request, formatter example looks 'Format Requests'
+        --   definition = false,
+        --   references = true,
+        --   implements = true,
+        --   git_authors = true,
+        -- },
+        sections = {
+          definition = function(count)
+            return "Definitions: " .. count
+          end,
+          references = function(count)
+            return "References: " .. count
+          end,
+          implements = function(count)
+            return "Implements: " .. count
+          end,
+          git_authors = function(latest_author, count)
+            return " " .. latest_author .. (count - 1 == 0 and "" or (" + " .. count - 1))
+          end,
+        },
+        ignore_filetype = {
+          "prisma",
+        },
+        -- Target Symbol Kinds to show lens information
+        target_symbol_kinds = { SymbolKind.Function, SymbolKind.Method, SymbolKind.Interface },
+        -- Symbol Kinds that may have target symbol kinds as children
+        wrapper_symbol_kinds = { SymbolKind.Class, SymbolKind.Struct },
+        LspLens = { link = "Comment" },
+      })
+    end,
+  },
+
+  { import = "lazyvim.plugins.extras.lsp.neoconf" },
+  { import = "lazyvim.plugins.extras.lsp.none-ls" },
+  { import = "lazyvim.plugins.extras.lang.docker" },
+  { import = "lazyvim.plugins.extras.lang.yaml" },
+  { import = "lazyvim.plugins.extras.lang.json" },
+  -- { import = "plugins.extras.lsp.lspsaga" },
+  { import = "plugins.extras.lang.python", cond = ConfigVariable.lang.python },
+  { import = "plugins.extras.lang.go", cond = ConfigVariable.lang.golang },
+  { import = "plugins.extras.lang.typescript", cond = ConfigVariable.lang.typescript },
+  { import = "plugins.extras.lang.markdown", cond = ConfigVariable.lang.markdown },
+  { import = "plugins.extras.lang.java", cond = ConfigVariable.lang.java },
+  { import = "plugins.extras.lang.cpp", cond = ConfigVariable.lang.cpp },
+  { import = "plugins.extras.lang.scala", cond = ConfigVariable.lang.scala },
+  { import = "plugins.extras.lang.kubernetes", cond = ConfigVariable.lang.kubernetes },
 }

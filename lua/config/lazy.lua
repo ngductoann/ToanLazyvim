@@ -18,6 +18,11 @@ require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "lazyvim.plugins.extras.vscode" },
+    {
+      "NvChad/NvChad",
+      lazy = false,
+      branch = "v2.5",
+    },
     { import = "plugins" },
   },
   defaults = {
@@ -28,7 +33,8 @@ require("lazy").setup({
   checker = {
     enabled = false, -- check for plugin updates periodically
     notify = false, -- notify on update
-  },   performance = {
+  },
+  performance = {
     rtp = {
       disabled_plugins = {
         "gzip",

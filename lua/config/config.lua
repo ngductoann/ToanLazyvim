@@ -25,10 +25,10 @@ ConfigVariable = {
 	},
 	editor = {
 		outline = false,
-		navbuddy = true,
-    navic = true,
+		navbuddy = false,
+    navic = false,
 		sidebar = false,
-		aerial = false,
+		aerial = true,
 		illuminate = true,
 	},
 	ui = {
