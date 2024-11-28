@@ -1,7 +1,7 @@
 return {
   -- { import = "plugins.extras.colorscheme.onedark" },
   -- { import = "plugins.extras.colorscheme.catppuccin" },
-  { import = "plugins.extras.colorscheme.gruvbox" },
+  -- { import = "plugins.extras.colorscheme.gruvbox" },
   -- { import = "plugins.extras.colorscheme.zenbones" },
   -- { import = "plugins.extras.colorscheme.github" },
   -- { import = "plugins.extras.colorscheme.onedarkpro" },
