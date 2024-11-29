@@ -20,7 +20,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.vscode" },
     {
       "NvChad/NvChad",
-      lazy = false,
+      lazy = true,
       branch = "v2.5",
     },
     { import = "plugins" },

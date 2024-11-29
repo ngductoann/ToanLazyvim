@@ -205,26 +205,54 @@ vim.api.nvim_create_autocmd("LspProgress", {
   end,
 })
 
-local set_indent_sizes = function(filetypes)
-  for filetype, size in pairs(filetypes) do
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = filetype,
-      callback = function()
-        vim.opt.shiftwidth = size
-        vim.opt.tabstop = size
-        vim.opt.softtabstop = size
-      end,
-    })
-  end
-end
+-- local set_indent_sizes = function(filetypes)
+--   for filetype, size in pairs(filetypes) do
+--     vim.api.nvim_create_autocmd("FileType", {
+--       pattern = filetype,
+--       callback = function()
+--         vim.opt.shiftwidth = size
+--         vim.opt.tabstop = size
+--         vim.opt.softtabstop = size
+--       end,
+--     })
+--   end
+-- end
 
-set_indent_sizes({
-  go = 4,
-  python = 4,
-  rust = 4,
-  cpp = 4,
-  c = 4,
-  make = 4,
-  java = 4,
-  xml = 4,
+-- set_indent_sizes({
+--   go = 4,
+--   python = 4,
+--   rust = 4,
+--   cpp = 4,
+--   c = 4,
+--   make = 4,
+--   java = 4,
+--   xml = 4,
+-- })
+
+local autocmd = vim.api.nvim_create_autocmd
+
+-- user event that loads after UIEnter + only if file buf is there
+autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {
+  group = vim.api.nvim_create_augroup("NvFilePost", { clear = true }),
+  callback = function(args)
+    local file = vim.api.nvim_buf_get_name(args.buf)
+    local buftype = vim.api.nvim_get_option_value("buftype", { buf = args.buf })
+
+    if not vim.g.ui_entered and args.event == "UIEnter" then
+      vim.g.ui_entered = true
+    end
+
+    if file ~= "" and buftype ~= "nofile" and vim.g.ui_entered then
+      vim.api.nvim_exec_autocmds("User", { pattern = "FilePost", modeline = false })
+      vim.api.nvim_del_augroup_by_name "NvFilePost"
+
+      vim.schedule(function()
+        vim.api.nvim_exec_autocmds("FileType", {})
+
+        if vim.g.editorconfig then
+          require("editorconfig").config(args.buf)
+        end
+      end)
+    end
+  end,
 })
