@@ -1,6 +1,4 @@
-dofile(vim.g.base46_cache .. "git")
-
-return {
+local M = {
 	{
     "nvim-lualine/lualine.nvim",
 		enabled = false,
@@ -135,3 +133,7 @@ return {
   "nvzone/volt",
   "nvzone/menu",
 }
+
+dofile(vim.g.base46_cache .. "git")
+
+return M
