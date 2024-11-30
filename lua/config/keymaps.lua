@@ -116,8 +116,6 @@ map("n", "<C-b>", function()
 end, {})
 
 -- tabufline
-map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
-
 map("n", "<tab>", function()
   require("nvchad.tabufline").next()
 end, { desc = "buffer goto next" })
