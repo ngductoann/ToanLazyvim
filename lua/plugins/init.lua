@@ -8,9 +8,6 @@ local M = {
     "folke/trouble.nvim",
     enabled = true,
     opts = { use_diagnostic_signs = true },
-    -- config = function()
-    --   dofile(vim.g.base46_cache .. "trouble")
-    -- end,
   },
   {
     "LazyVim/LazyVim",
@@ -133,7 +130,5 @@ local M = {
   "nvzone/volt",
   "nvzone/menu",
 }
-
-dofile(vim.g.base46_cache .. "git")
 
 return M

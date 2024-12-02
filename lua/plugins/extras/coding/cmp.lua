@@ -41,6 +41,7 @@ return -- load luasnips + cmp related in insert mode only
   },
   opts = function()
     dofile(vim.g.base46_cache .. "cmp")
+    local defaults = require("cmp.config.default")()
 
     local cmp = require("cmp")
 
@@ -87,7 +88,7 @@ return -- load luasnips + cmp related in insert mode only
         end, { "i", "s" }),
       },
 
-      sorting = {},
+      sorting = defaults.sorting,
 
       sources = {
         { name = "nvim_lsp" },
