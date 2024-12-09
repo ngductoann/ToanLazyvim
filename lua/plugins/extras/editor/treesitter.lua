@@ -75,6 +75,9 @@ return {
         "vimdoc",
         "xml",
         "yaml",
+				"comment",
+				"sql",
+				"gotmpl"
       },
       incremental_selection = {
         enable = true,

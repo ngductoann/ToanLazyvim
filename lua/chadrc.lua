@@ -1,12 +1,12 @@
 return {
   base46 = {
-    theme = "solarized_dark",
+    theme = "material-darker",
     hl_add = {},
     hl_override = {},
     integrations = {},
     changed_themes = {},
     transparency = false,
-    theme_toggle = { "solarized_dark", "material-lighter" },
+    theme_toggle = { "material-darker", "material-lighter" },
   },
 
   ui = {
@@ -22,10 +22,10 @@ return {
     telescope = { style = "bordered" }, -- borderless / bordered
 
     statusline = {
-      theme = "default", -- default/vscode/vscode_colored/minimal
+      theme = "vscode_colored", -- default/vscode/vscode_colored/minimal
       -- default/round/block/arrow separators work only for default statusline theme
       -- round and block will work for minimal theme only
-      separator_style = "block",
+      separator_style = "default",
       order = nil,
       modules = nil,
     },

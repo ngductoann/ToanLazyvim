@@ -14,4 +14,12 @@ return {
     ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
+{
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+				"json-to-struct"
+      },
+    },
+  },
 }
