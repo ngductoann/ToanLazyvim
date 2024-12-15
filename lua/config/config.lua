@@ -32,7 +32,7 @@ ConfigVariable = {
 		illuminate = true,
 	},
 	ui = {
-		scroll = false,
+		scroll = true,
 		zenmode = false,
 	},
 }

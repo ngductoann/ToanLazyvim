@@ -2,6 +2,10 @@
 vim.g.mapleader = ","
 vim.g.maplocalleader = ";"
 
+vim.g.lazyvim_cmp = false
+vim.g.ai_cmp = false
+vim.g.lazyvim_prettier_needs_config = true
+
 -- Enable elite-mode (hjkl mode. arrow-keys resize window)
 vim.g.elite_mode = false
 
@@ -22,8 +26,8 @@ vim.g.lazygit_config = true
 
 -- Options for the LazyVim statuscolumn
 vim.g.lazyvim_statuscolumn = {
-	folds_open = false, -- show fold sign when fold is open
-	folds_githl = false, -- highlight fold sign with git sign color
+  folds_open = false, -- show fold sign when fold is open
+  folds_githl = false, -- highlight fold sign with git sign color
 }
 
 -- Hide deprecation warnings
@@ -177,15 +181,10 @@ opt.fillchars = {
 
 opt.statuscolumn = [[%!v:lua.require'snacks'.statuscolumn()]]
 
-if vim.fn.has('nvim-0.10') == 1 then
-	opt.smoothscroll = true
-	vim.opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
-	vim.opt.foldmethod = 'expr'
-	vim.opt.foldtext = ''
-else
-	vim.opt.foldmethod = 'indent'
-	vim.opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
-end
+opt.smoothscroll = true
+vim.opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
+vim.opt.foldmethod = 'expr'
+vim.opt.foldtext = ''
 
 -- Misc
 -- ===

@@ -1,8 +1,8 @@
 local M = {
-	{
+  {
     "nvim-lualine/lualine.nvim",
-		enabled = false,
-	},
+    enabled = false,
+  },
   -- disable trouble
   {
     "folke/trouble.nvim",

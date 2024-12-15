@@ -11,7 +11,7 @@ return {
 
   ui = {
     cmp = {
-			icons_left = true,
+      icons_left = true,
       lspkind_text = true,
       style = "flat_dark", -- default/flat_light/flat_dark/atom/atom_colored
       format_colors = {
