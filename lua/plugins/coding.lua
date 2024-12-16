@@ -1,4 +1,6 @@
 return {
+	{ import = "plugins.extras.coding.blink" },
+	{ import = "lazyvim.plugins.extras.coding.luasnip" },
   { import = "plugins.extras.coding.lazydev" },
 	-- { import = "lazyvim.plugins.extras.coding.nvim-cmp" },
 	-- { import = "plugins.extras.coding.cmp" },
