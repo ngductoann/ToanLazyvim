@@ -6,6 +6,7 @@ return {
   { import = "plugins.extras.editor.ufo" },
   { import = "plugins.extras.editor.window-picker" },
   { import = "plugins.extras.editor.treesitter" },
+  { import = "plugins.extras.editor.snacks" },
 
   { import = "lazyvim.plugins.extras.editor.inc-rename" },
   { import = "lazyvim.plugins.extras.editor.outline" },

@@ -7,7 +7,7 @@ vim.g.maplocalleader = ";"
 
 vim.g.lazyvim_cmp = false
 vim.g.ai_cmp = false
-vim.g.lazyvim_prettier_needs_config = true
+vim.g.lazyvim_prettier_needs_config = false
 
 -- Enable elite-mode (hjkl mode. arrow-keys resize window)
 vim.g.elite_mode = false
@@ -42,6 +42,8 @@ vim.g.bigfile_size = 1024 * 1024 * 10 * 2 -- 3 MB
 
 vim.g.trouble_lualine = false
 
+vim.o.statuscolumn = "%!v:lua.require'snacks.statuscolumn'.get()"
+
 -- vim.g.vscode = true
 
 local opt = vim.opt
@@ -56,7 +58,8 @@ opt.signcolumn = "yes" -- Always show signcolumn
 opt.spelllang = { "en" }
 opt.spelloptions:append("camel")
 opt.spelloptions:append("noplainbuffer")
-opt.updatetime = 200 -- Idle time to write swap and trigger CursorHold
+opt.updatetime = 300 -- Idle time to write swap and trigger CursorHold
+opt.timeoutlen = 400
 
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 

@@ -22,4 +22,12 @@ return {
       },
     },
   },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = { "go", "gowork", "gomod", "gosum", "json" },
+      })
+    end,
+  },
 }

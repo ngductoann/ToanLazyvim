@@ -165,30 +165,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-local set_indent_sizes = function(filetypes)
-  for filetype, size in pairs(filetypes) do
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = filetype,
-      callback = function()
-        vim.opt.shiftwidth = size
-        vim.opt.tabstop = size
-        vim.opt.softtabstop = size
-      end,
-    })
-  end
-end
-
-set_indent_sizes({
-  go = 4,
-  python = 4,
-  rust = 4,
-  cpp = 4,
-  c = 4,
-  make = 4,
-  java = 4,
-  xml = 4,
-})
-
 local autocmd = vim.api.nvim_create_autocmd
 
 -- user event that loads after UIEnter + only if file buf is there

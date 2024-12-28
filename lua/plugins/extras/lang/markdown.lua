@@ -14,6 +14,14 @@ return {
   end,
 
   { import = "lazyvim.plugins.extras.lang.markdown" },
+ {
+    "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = { "markdown_inline" },
+      })
+    end,
+  },
   {
     "mzlogin/vim-markdown-toc",
     cmd = { "GenTocGFM", "GenTocRedcarpet", "GenTocGitLab", "UpdateToc" },
