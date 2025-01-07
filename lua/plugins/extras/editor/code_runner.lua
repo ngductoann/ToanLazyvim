@@ -8,7 +8,7 @@ return {
       filetype = {
         -- java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
         -- cpp = "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
-        java = "cd $dir && javac $fileName && java $fileNameWithoutExt && rm $fileNameWithoutExt",
+        java = "cd $dir && javac $fileName && java $fileNameWithoutExt && rm $fileNameWithoutExt.class",
         python = "python3 -u",
         typescript = "deno run",
         javascript = "node $dir/$fileName",

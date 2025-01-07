@@ -14,7 +14,7 @@ return {
   end,
 
   { import = "lazyvim.plugins.extras.lang.markdown" },
- {
+  {
     "nvim-treesitter/nvim-treesitter",
     config = function()
       require("nvim-treesitter.configs").setup({
@@ -266,7 +266,7 @@ return {
           stackoverflow = { pattern = "stackoverflow%.com", icon = "󰓌 " },
           discord = { pattern = "discord%.com", icon = "󰙯 " },
           reddit = { pattern = "reddit%.com", icon = "󰑍 " },
-          python = { pattern = '%.py$', icon = '󰌠 ' },
+          python = { pattern = "%.py$", icon = "󰌠 " },
         },
       },
 
@@ -289,5 +289,17 @@ return {
         bottom_pad = 0,
       },
     },
+  },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+    config = function()
+      vim.g.mkdp_port = "9999"
+    end,
   },
 }

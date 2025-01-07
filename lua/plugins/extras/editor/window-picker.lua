@@ -1,5 +1,6 @@
 return {
   "s1n7ax/nvim-window-picker",
+  lazy = false,
   keys = function(_, keys)
     local pick_window = function()
       local picked_window_id = require("window-picker").pick_window()

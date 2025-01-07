@@ -1,12 +1,12 @@
 return {
   base46 = {
-    theme = "material-darker",
+    theme = "solarized_dark",
     hl_add = {},
     hl_override = {},
     integrations = {},
     changed_themes = {},
     transparency = false,
-    theme_toggle = { "material-darker", "material-lighter" },
+    theme_toggle = { "solarized_dark", "material-lighter" },
   },
   ui = {
     cmp = {

@@ -14,6 +14,7 @@ return {
     ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
+
   {
     "williamboman/mason.nvim",
     opts = {
@@ -24,10 +25,6 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = { "go", "gowork", "gomod", "gosum", "json" },
-      })
-    end,
+    opts = { ensure_installed = { "go", "gomod", "gowork", "gosum" } },
   },
 }
