@@ -1,4 +1,19 @@
 return {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "go",
+        "gomod",
+        "gowork",
+        "gosum",
+        "sql",
+        "regex",
+      },
+      auto_installs = true,
+    },
+  },
+
   "gpanders/editorconfig.nvim",
 
   "nvim-lua/plenary.nvim",
