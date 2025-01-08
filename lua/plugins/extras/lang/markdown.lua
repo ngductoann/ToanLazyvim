@@ -52,7 +52,7 @@ return {
         icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
         -- Added to the sign column if enabled
         -- The 'level' is used to index into the array using a cycle
-        signs = { "󰫎 " },
+        -- signs = { "󰫎 " },
         -- The 'level' is used to index into the array using a clamp
         -- Highlight for the heading icon and extends through the entire line
         backgrounds = {
@@ -273,10 +273,6 @@ return {
       sign = {
         -- Turn on / off sign rendering
         enabled = true,
-        -- More granular mechanism, disable signs within specific buftypes
-        exclude = {
-          buftypes = { "nofile" },
-        },
         -- Applies to background of sign text
         highlight = "RenderMarkdownSign",
       },
@@ -291,15 +287,15 @@ return {
     },
   },
 
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-    config = function()
-      vim.g.mkdp_port = "9999"
-    end,
-  },
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  --   ft = { "markdown" },
+  --   build = function()
+  --     vim.fn["mkdp#util#install"]()
+  --   end,
+  --   config = function()
+  --     vim.g.mkdp_port = "9999"
+  --   end,
+  -- },
 }

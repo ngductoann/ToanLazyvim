@@ -1,7 +1,9 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.coding.nvim-cmp",
     "lazyvim.plugins.extras.ui.smear-cursor",
-    "lazyvim.plugins.extras.vscode"
+    "lazyvim.plugins.extras.vscode",
+    "plugins.extras.editor.treesitter"
   ],
   "news": {
     "NEWS.md": "10960"
