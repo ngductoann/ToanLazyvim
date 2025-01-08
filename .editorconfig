@@ -20,7 +20,7 @@ indent_style = space
 indent_size = 4
 
 # Specific settings for Java
-[*.py]
+[*.java]
 indent_style = space
 indent_size = 4
 
@@ -28,10 +28,6 @@ indent_size = 4
 [*.{js,jsx,ts,tsx}]
 indent_style = space
 indent_size = 2
-
-[*.{js,ts}]
-indent_style = space
-indent_size = 4
 
 # Specific settings for HTML, CSS, and related files
 [*.{html,css,scss}]
